@@ -1,0 +1,21 @@
+.white-text{
+    color: white;
+}
+
+.form-inline > * {
+    margin:5px 3px;
+}
+
+.card-img-top-fixed-height{
+    max-height: 160px;
+    overflow: hidden;
+    min-height: 160px;
+}
+
+.top-container{
+    width: 100%;
+    height: 200px;
+    background: url(/img/landing.jpg) no-repeat center fixed;
+    -webkit-background-size: cover; /* pour anciens Chrome et Safari */
+    background-size: cover; /* version standardisée */
+}
