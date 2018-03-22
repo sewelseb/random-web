@@ -15,8 +15,9 @@
     </head>
     <body>
         {% block body %}
-            {% include 'blocs/navbar.html.twig' %}
+            {#{% include 'blocs/navbar.html.twig' %}#}
             <div class=" top-container"  >
+            </div>
 
                 <div class="container top-container-innerMargin">
                     <div class="row" >
@@ -55,48 +56,76 @@
                             {% endfor %}
                         </div>
                     </div>
-                </div>
-            </div>
-            <div class="container">
-                <div class="row d-md-none">
-                    <div class="card-deck">
-                        {% for site in sites %}
+                    <div class="row d-md-none">
+                        <div class="col">
+                            <div class="card-deck">
+                                {% for site in sites %}
 
-                            <div class="card" >
-                                <a href="{{ site.url }}">
-                                    {%  if not site.thumbnailUrl is null %}
-                                        <img class="card-img-top card-img-top-fixed-height" src="{{ site.thumbnailUrl }}" alt="{{ site.title }}">
-                                    {% else %}
-                                        <img class="card-img-top card-img-top-fixed-height" src="{{ asset('img/landing.jpg') }}" alt="{{ site.title }}">
-                                    {% endif %}
+                                    <div class="card" >
+                                        <a href="{{ site.url }}">
+                                            {%  if not site.thumbnailUrl is null %}
+                                                <img class="card-img-top card-img-top-fixed-height" src="{{ site.thumbnailUrl }}" alt="{{ site.title }}">
+                                            {% else %}
+                                                <img class="card-img-top card-img-top-fixed-height" src="{{ asset('img/landing.jpg') }}" alt="{{ site.title }}">
+                                            {% endif %}
 
-                                </a>
+                                        </a>
 
-                                <div class="card-body">
-                                    <h5 class="card-title">{{ site.title }}</h5>
-                                    <p class="card-text">{{ site.description }}</p>
-                                    <a href="{{ site.url }}" class="card-link">
-                                        {{ site.url }}
-                                    </a>
-                                </div>
+                                        <div class="card-body">
+                                            <h5 class="card-title">{{ site.title }}</h5>
+                                            <p class="card-text">{{ site.description }}</p>
+                                            <a href="{{ site.url }}" class="card-link">
+                                                {{ site.url }}
+                                            </a>
+                                        </div>
+
+                                    </div>
+
+
+
+
+                                {% endfor %}
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="row margin-top-20px" >
+                        <div class="col text-center">
+                            <div class="jumbotron">
+                                {{ render(controller('App\\Controller\\SiteController::create', {'request': app.request})) }}
 
                             </div>
-
-
-
-
-                        {% endfor %}
+                        </div>
                     </div>
                 </div>
+
+
+
+
+
+
+
+        {% endblock %}
+
+        {% block footer %}
+            <footer class="pt-4 my-md-5 pt-md-5 border-top">
                 <div class="row">
-                    <div class="col text-center">
-                        {{ render(controller('App\\Controller\\SiteController::create', {'request': app.request})) }}
+                    <div class="col-1 "></div>
+                    <div class="col-11 ">
+                        <div class="media">
+                            <img class="mr-3" src="{{ asset('img/moi.jfif') }}" alt="Generic placeholder image" height="63px">
+                            <div class="media-body">
+                                <h5 class="mt-0">I have made this open-source website to train myself with some new techs.</h5>
+                                <a href="https://github.com/sewelseb/random-web">Source code on github</a>
+                            </div>
+                        </div>
+
+
+                        <small class="d-block mb-3 text-muted">Sébastien de Beauffort, 2018</small>
                     </div>
                 </div>
-
+            </footer>
             </div>
-
-
         {% endblock %}
 
 

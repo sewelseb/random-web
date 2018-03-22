@@ -13,9 +13,14 @@
 }
 
 .top-container{
+    position: absolute;
     width: 100%;
     height: 200px;
     background: url(/img/landing.jpg) no-repeat center fixed;
     -webkit-background-size: cover; /* pour anciens Chrome et Safari */
     background-size: cover; /* version standardisée */
+}
+
+.margin-top-20px{
+    margin-top: 20px;
 }
